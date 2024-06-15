@@ -1,19 +1,32 @@
-const express = require("express")
-const app = express()
-const port = 3000
+const express = require("express");
+const app = express();
+const port = 3000;
 
-app.get("/", (req, res) => {
-  res.send("Hello World!");
+app.set("view engine", "ejs"); //setting penggunaan template engine untuk express
+app.set("views", "./view-ejs"); //setting penggunaan folder untuk menyimpan file .ejs
+
+app.get("/index", (_req, res) => {
+  res.render("index");
 });
 
-app.get("/profile", (req, res) => {
-  res.send("halaman profile");
+app.get("/profile", (_req, res) => {
+  res.render("profile");
 });
 
-app.get("/beranda", (req, res) => {
-  res.send("halaman beranda");
+app.get("/pengalaman", (_req, res) => {
+  res.render("daftar-pengalaman", {
+    nama: "Aji Kowiyu Uzumaki",
+    jenis_kelamin: "L",
+    posisi: "Sr. Programmer",
+    perusahaan: "Agung Podomoro",
+    gaji: 9557000,
+    pajak:
+      this.gaji > 10000000
+        ? "gaji anda kena pajak"
+        : "aman, gak perlu bayar pajak",
+  });
 });
 
 app.listen(port, () => {
-  console.log(` server siap !!!! buka localhost ${port}`);
+  console.log(`App sudah siap jalan, buka http://localhost:${port}`);
 });

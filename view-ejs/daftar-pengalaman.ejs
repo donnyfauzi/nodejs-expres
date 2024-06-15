@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <h1>Pengalaman Kandidat</h1>
+
+<ul>
+    <li><%= nama %></li>
+    <% if (jenis_kelamin == "L") { %>
+        <li>Laki</li>
+    <% } else { %>
+        <li>Perempuan</li>
+    <% } %>
+    <li><%= posisi %></li>
+    <li><%= perusahaan %></li>
+    <li><%= gaji.toLocaleString("id-ID") %></li>
+    <li><%= pajak %></li>
+    
+    <!-- cara penulisan logika server pertama -->
+    <% if (gaji > 10000000) { %>
+        <li>gaji anda kena pajak</li>
+    <% } else { %>
+        <li>aman, ga perlu bayar pajak</li>
+    <% } %>
+
+    <!-- cara penulisan logika server kedua -->
+    <%
+        if (gaji > 10000000) {
+            __append("gaji anda kena pajak")
+        } else {
+            __append("aman, ga perlu bayar pajak")
+        }
+    %>
+</ul>
+    
+</body>
+</html>
