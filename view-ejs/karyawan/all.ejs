@@ -1,0 +1,35 @@
+<h1>Data Karyawan</h1>
+<hr>
+
+<table border="1" style="text-align: center; color: rgb(255, 0, 0);">
+    <thead>
+        <tr>
+            <th>Nama</th>
+            <th>Jenis Kelamin</th>
+            <th>Departemen</th>
+            <th>Jabatan</th>
+            <th>Opsi</th>
+            
+        </tr>
+    </thead>
+    <tbody>
+        <% for (const i in semua_karyawan) { %>
+            <tr>
+            <td><%= semua_karyawan[i].nama %></td>
+            <td><%= semua_karyawan[i].jenis_kelamin %></td>
+            <td><%= semua_karyawan[i].departemen_kode %></td>
+            <td><%= semua_karyawan[i].jabatan_nama %></td>
+            <td>
+                <a href="/karyawan/detail">
+                    <button>Detail</button>
+                </a>
+            </td>
+            </tr>
+       <% } %> 
+        
+    </tbody>
+</table>
+
+<pre>
+    <%= JSON.stringify(semua_karyawan, null, 4) %>
+</pre>
