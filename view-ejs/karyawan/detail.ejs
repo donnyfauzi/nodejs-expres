@@ -1,5 +1,7 @@
+<% if (detail_karyawan.length > 0) {%>
 <h1>detail data karyawan</h1>
 <hr><hr>
+
 <ul>
     <li>nama: <%= detail_karyawan[0].nama %></li>
     <li>alamat: <%= detail_karyawan[0].alamat %></li>
@@ -11,6 +13,15 @@
     <li>role: <%= detail_karyawan[0].jabatan_role %></li>
     <li>tugas: <%= detail_karyawan[0].jabatan_deskripsi %></li>
 </ul>
-<pre>
-    <%= JSON.stringify( detail_karyawan, null, 4 ) %>
-</pre>
+
+
+<%}else { %>
+    <p>tidak ada data</p>
+
+    <% } %>
+
+
+
+
+
+

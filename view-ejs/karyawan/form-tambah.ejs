@@ -1,0 +1,65 @@
+
+
+<h1 style="text-align: center;">Tambah Karyawan</h1>
+<hr>
+<body style="background-color: cadetblue;">
+
+    <% if (info_error) { %>
+    <strong style="color: red;">
+        <%= info_error.errno %> - <%= info_error.code %> <br>
+        <%= info_error.sqlMessage %> <br>
+    </strong>
+    <br>
+<% } %>
+
+
+<form action="/karyawan/proses-simpan" method="post">
+    <label>Nama Lengkap</label>
+    <input type="text" name="nama_lengkap" id="namakaryawan" required>
+    <br><br>
+
+    <label>Alamat</label>
+    <textarea name="alamat" id="alamatkaryawan"></textarea>
+    <br><br>
+
+    <label>Nomor Telepon</label>
+    <input type="text" name="no_telp" id="notelpkaryawan">
+    <br><br>
+
+    <label>Golongan Darah</label>
+    <select name="gol_darah" id="goldarahkaryawan">
+        <option value="">--pilih--</option>
+        <option>A</option>
+        <option>B</option>
+        <option>AB</option>
+        <option>O</option>
+    </select>
+    <br><br>
+
+    <label>Jenis Kelamin</label>
+    <select name="jns_kelamin" id="jnskelaminkaryawan">
+        <option value="">--pilih--</option>
+        <option value="L">Laki</option>
+        <option value="P">Perempuan</option>
+    </select>
+    <br><br>
+
+    <button type="submit">simpan</button>
+</form>
+
+    
+</body>
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+    

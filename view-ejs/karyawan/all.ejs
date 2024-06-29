@@ -1,5 +1,22 @@
 <h1>Data Karyawan</h1>
 <hr>
+<% if (req.query.note == 'insert-sukses') { %>
+    <strong style="color: green;">Berhasil simpan ke database</strong><br><br>
+<% } %>
+
+
+<% if (req.query.note == 'update-sukses') { %>
+    <strong style="color: green;">Berhasil perbarui data karyawan</strong><br><br>
+<% } %>
+<% if (req.query.note == 'update-gagal') { %>
+    <strong style="color: green;">Gagal, cek terminal</strong><br><br>
+<% } %>
+
+
+ <a href="/karyawan/tambah">
+    <button style="background-color: brown; color: aliceblue; border-radius: 2px; border-color: brown;">Tambah Data</button>
+</a>
+<br><br>
 
 <table border="1" style="text-align: center; color: rgb(255, 0, 0);">
     <thead>
@@ -20,8 +37,11 @@
             <td><%= semua_karyawan[i].departemen_kode %></td>
             <td><%= semua_karyawan[i].jabatan_nama %></td>
             <td>
-                <a href="/karyawan/detail">
-                    <button>Detail</button>
+                <a href="/karyawan/detail/<%= semua_karyawan[i].id %>">
+                    <button style="background-color: brown; color: aliceblue; border-radius: 2px; border-color: brown;">Detail</button>
+                </a>
+                <a href="/karyawan/edit/<%= semua_karyawan[i].id %>">
+                        <button>edit</button>
                 </a>
             </td>
             </tr>
@@ -30,6 +50,3 @@
     </tbody>
 </table>
 
-<pre>
-    <%= JSON.stringify(semua_karyawan, null, 4) %>
-</pre>
